@@ -2,14 +2,10 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="Rails post_project: development" uuid="20eb1250-6204-41c1-8fda-0c3c5039eea6">
-      <user-name>seo</user-name>
-      <user-password>dfd9dfcfdfc5dfdadfcbdfd9dfd9</user-password>
       <schema-pattern>post_database.pg_catalog post_database.public</schema-pattern>
       <default-schemas>post_database.pg_catalog post_database.public</default-schemas>
     </data-source>
     <data-source name="Rails post_project: test" uuid="0c9bc7ee-d5d3-4be1-86ff-17db9938308b">
-      <user-name>seo</user-name>
-      <user-password>dfd9dfcfdfc5dfdadfcbdfd9dfd9</user-password>
       <schema-pattern>post_database.pg_catalog post_database.public</schema-pattern>
       <default-schemas>post_database.pg_catalog post_database.public</default-schemas>
     </data-source>

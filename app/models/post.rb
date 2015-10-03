@@ -1,3 +1,5 @@
 class Post < ActiveRecord::Base
-  belongs_to :target, polymorphic: true
+  has_many :comments, as: :target
+  validates :title, presence: true, length: {maximum: 45}
+  validates :content, presence: true, length: {maximum: 140}
 end
