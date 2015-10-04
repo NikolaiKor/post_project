@@ -1,5 +1,6 @@
 class Event < ActiveRecord::Base
   has_many :comments, as: :target
+  mount_uploader :image, PictureUploader
   validates :title, presence: true, length: {maximum: 45}
   validates :address, presence: true, length: {maximum: 140}
   validates :title, presence: true, length: {maximum: 45}

@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20151003163149) do
     t.string   "title"
     t.string   "address"
     t.datetime "started_at"
+    t.string   "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -42,6 +43,7 @@ ActiveRecord::Schema.define(version: 20151003163149) do
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.string   "content"
+    t.string   "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -51,6 +53,7 @@ ActiveRecord::Schema.define(version: 20151003163149) do
   create_table "videos", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
+    t.string   "video"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
