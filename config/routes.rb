@@ -1,16 +1,17 @@
 Rails.application.routes.draw do
-  # root 'welcome#index'
+
+  root 'welcome#index'
   concern :commentable do
     resources :comments, only: [:create, :new, :index]
   end
 
-  resources :posts, only: [:index,:show, :new, :edit, :update, :destroy], concerns: :commentable
+  resources :posts, :events, :videos, :comments, only: [:index,:show, :new, :edit, :update, :destroy, :create], concerns: :commentable
 
-  resources :events, only: [:index, :show, :new, :edit, :update, :destroy], concerns: :commentable
+  #resources :events, only: [:index, :show, :new, :edit, :update, :destroy], concerns: :commentable
 
-  resources :videos, only: [:index, :show, :new, :edit, :update, :destroy], concerns: :commentable
+  #resources :videos, only: [:index, :show, :new, :edit, :update, :destroy], concerns: :commentable
 
-  resources :comments, only: [:index, :show, :new, :edit, :update, :destroy]
+  #resources :comments, only: [:index, :show, :new, :edit, :update, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

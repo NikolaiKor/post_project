@@ -37,6 +37,7 @@ gem 'thin'
 gem 'carrierwave'
 gem 'kaminari'
 gem 'carrierwave'
+gem 'debase'
 
 group :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

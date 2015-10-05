@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-  attr_accessible :author_name, :content, :target_type, :target_id
+  #attr_accessible :author_name, :content, :target_type, :target_id
   belongs_to :target, polymorphic: true
   validates :author_name, :author_email, presence: true, length: {maximum: 45}
   validates :content, presence: true, length: {maximum: 140}

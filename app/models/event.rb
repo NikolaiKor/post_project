@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  attr_accessible :title, :address, :started_at, :image
+  #attr_accessible :title, :address, :started_at, :image
   has_many :comments, as: :target
   mount_uploader :image, PictureUploader
   validates :address, presence: true, length: {maximum: 140}
