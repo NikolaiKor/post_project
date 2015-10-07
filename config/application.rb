@@ -19,6 +19,7 @@ module PostProject
   class Application < Rails::Application
     config.generators do |g|
       g.javascripts false
+      g.stylesheets false
       g.test_framework :rspec
       g.integration_tool :rspec
       g.template_engine :slim

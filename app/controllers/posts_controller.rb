@@ -14,8 +14,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(params[:article])
-    @post.save
+    @post = Post.new(post_params)
+    @post.save!
     redirect_to @post
   end
 
@@ -43,5 +43,9 @@ class PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit(:image, :title, :content)
+  end
+
+  def img_path(img)
+    "uploads/post/#{img}"
   end
 end

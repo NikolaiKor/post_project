@@ -43,9 +43,9 @@ ActiveRecord::Schema.define(version: 20151003163149) do
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.string   "content"
-    t.string   "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "image",      default: "no_image.png"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   add_index "posts", ["id"], name: "index_posts_on_id", using: :btree

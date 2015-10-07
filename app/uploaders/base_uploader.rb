@@ -2,6 +2,6 @@ require 'carrierwave'
 require 'carrierwave/orm/activerecord'
 class BaseUploader < CarrierWave::Uploader::Base
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    "uploads/#{model.class.to_s.underscore}"
   end
 end
