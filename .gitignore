@@ -15,3 +15,4 @@ public/uploads/
 .idea/
 app/pdfs/
 *.pdf
+config/initializers/pdfkit.rb
