@@ -1,15 +1,24 @@
 class VideosController < ApplicationController
   def index
-    @video = Video.all
+    @videos = Video.page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @videos }
+    end
+  end
+
+  def new
+    @video = Video.new
   end
 
   def show
     @video = Video.find(params[:id])
   end
 
-  def new
-    @video = Video.new(params[:article])
-    @video.save
+  def create
+    @video = Video.new(video_params)
+    @video.save!
     redirect_to @video
   end
 
@@ -22,8 +31,6 @@ class VideosController < ApplicationController
 
     if @video.update(video_params)
       redirect_to @video
-    else
-      render 'edit'
     end
   end
 

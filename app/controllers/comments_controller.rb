@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
 
 
   def index
-    @comment = Comment.all
+    @comments = Comment.all
   end
 
   def show
@@ -10,9 +10,14 @@ class CommentsController < ApplicationController
   end
 
   def new
-    @comment = Comment.new(params[:article])
-    @comment.save
-    redirect_to @comment
+    @comment = Comment.new
+    @comment
+  end
+
+  def create
+    @commentable = commentable_type
+    @comment = @commentable.comments.create(comment_params)
+    redirect_to @commentable
   end
 
   def edit
@@ -38,7 +43,17 @@ class CommentsController < ApplicationController
 
   private
   def comment_params
-    params.require(:comment).permit(:author_name, :content, :target_type, :target_id)
+    params.require(:comment).permit(:content, :author_name, :author_email, :id)
+  end
+
+  def commentable_type
+    case
+      when !params[:post_id].nil?
+        return Post.find(params[:post_id])
+      when !params[:video_id].nil?
+        return Video.find(params[:video_id])
+      when !params[:event_id].nil?
+        return Event.find(params[:video_id])
+    end
   end
 end
-

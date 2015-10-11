@@ -1,0 +1,10 @@
+.info_container
+  .col-md-10.col-md-offset-1
+    = form_for @video do |f|
+      br = f.label :title, 'Title'
+      = f.text_field :title
+      br = f.label :description, 'Description'
+      = f.text_field :description
+      br = f.label :video, 'Video'
+      = f.file_field :video
+      br = f.submit 'Create', class: "btn btn-lg btn-default"

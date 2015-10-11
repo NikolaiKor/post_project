@@ -1,31 +1,7 @@
-doctype 5
-html
-  head
-    title Post project
-    = stylesheet_link_tag 'application.css'
-  body
-    .container
-      nav.navbar.navbar-default
-        .container-fluid
-          .navbar-header
-            button.navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button"
-              span.sr-only Toggle navigation
-              span.icon-bar
-              span.icon-bar
-              span.icon-bar
-            a.navbar-brand href="/"  Post project
-          #navbar.navbar-collapse.collapse
-            ul.nav.navbar-nav
-              li: a href="/"  Home
-              li: a.active href="/posts"  Posts
-              li: a href="videos"  Videos
-              li: a href="events"  Events
-      -@posts.each do |post|
-        a href="/posts/#{post.id}"
-          .col-md-12
-            .col-md-3
-              =image_tag(post.image, width: "200")
-            .col-md-9
-              .info_wrapper
-                p: h2 =post.title
-                p =post.content
+.info_container
+  = link_to 'Create new post', new_post_path, :class => "btn btn-small"
+  br
+  br
+  = 'No posts' if @posts.empty?
+  = render @posts
+  = paginate @posts

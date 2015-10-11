@@ -1,0 +1,8 @@
+a href="/posts/#{post.id}"
+  .col-md-12
+    .col-md-3
+      =image_tag(post.image, width: "200")
+    .col-md-9
+      .info_wrapper
+        p: h2 =post.title
+        p =post.content

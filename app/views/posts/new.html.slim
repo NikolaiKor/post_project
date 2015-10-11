@@ -1,36 +1,10 @@
-doctype 5
-html
-  head
-    title Seo Instrument
-    = stylesheet_link_tag 'application.css'
-  body
-    .container
-      nav.navbar.navbar-default
-        .container-fluid
-          .navbar-header
-            button.navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button"
-              span.sr-only Toggle navigation
-              span.icon-bar
-              span.icon-bar
-              span.icon-bar
-            a.navbar-brand href="/"  Post project
-          #navbar.navbar-collapse.collapse
-            ul.nav.navbar-nav
-              li
-                a href="/"  Home
-              li
-                a.active href="/posts"  Posts
-              li
-                a href="videos"  Videos
-              li
-                a href="events"  Events
-      .info_container
-        .col-md-10.col-md-offset-1
-          = form_for @post do |f|
-            = f.label :title, 'Title'
-            = f.text_field :title
-            br = f.label :title, 'Content'
-            = f.text_area :content, size: '60x12'
-            br = f.label :title, 'Image'
-            = f.file_field :image
-            br = f.submit 'Create'
+.info_container
+  .col-md-10.col-md-offset-1
+    = form_for @post do |f|
+      = f.label :title, 'Title'
+      = f.text_field :title
+      br = f.label :content, 'Content'
+      = f.text_area :content, size: '60x12'
+      br = f.label :image, 'Image'
+      = f.file_field :image
+      br = f.submit 'Create', class: "btn btn-lg btn-default"

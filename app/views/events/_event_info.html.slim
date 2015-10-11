@@ -1,0 +1,11 @@
+.col-md-4
+  =image_tag(@event.image, width: "300")
+.col-md-8
+  .info_wrapper
+    p: h2 =@event.title
+    p
+      'Started at
+      =@event.started_at
+    p
+      'Adress:
+      =@event.address

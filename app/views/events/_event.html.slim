@@ -1,0 +1,9 @@
+a href="/events/#{event.id}"
+  .col-md-12
+    .col-md-3
+      =image_tag(event.image, width: "200")
+    .col-md-9
+      .info_wrapper
+        p: h2 =event.title
+        p =event.address
+        p =event.started_at

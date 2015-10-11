@@ -1,14 +1,23 @@
 class EventsController < ApplicationController
   def index
-    @event = Event.all
+    @events = Event.page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @events }
+    end
+  end
+
+  def new
+    @event = Event.new
   end
 
   def show
     @event = Event.find(params[:id])
   end
 
-  def new
-    @event = Event.new(params[:article])
+  def create
+    @event = Event.new(event_params)
     @event.save
     redirect_to @event
   end
@@ -22,8 +31,6 @@ class EventsController < ApplicationController
 
     if @event.update(event_params)
       redirect_to @event
-    else
-      render 'edit'
     end
   end
 
@@ -36,6 +43,6 @@ class EventsController < ApplicationController
 
   private
   def event_params
-    params.require(:event).permit(:title, :address, :started_at, :image)
+    params.require(:event).permit(:image, :title, :address, :started_at)
   end
 end

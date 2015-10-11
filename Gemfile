@@ -38,6 +38,10 @@ gem 'carrierwave'
 gem 'kaminari'
 gem 'carrierwave'
 gem 'debase'
+gem 'prawn'
+gem 'wkhtmltopdf-binary'
+gem 'pdfkit'
+gem 'wicked_pdf'
 
 group :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

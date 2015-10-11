@@ -1,0 +1,6 @@
+.info_container
+  = render 'events/event_info'
+.comment_list_container
+  = render 'comments/comments_list', locals: {commentable: @event}
+.comment_container
+  = render 'comments/comment_form', locals: {commentable: @event}

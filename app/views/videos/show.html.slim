@@ -1,0 +1,6 @@
+.info_container
+  = render 'videos/video_info'
+.comment_list_container
+  = render 'comments/comments_list', locals: {commentable: @video}
+.comment_container
+  = render 'comments/comment_form', locals: {commentable: @video}
