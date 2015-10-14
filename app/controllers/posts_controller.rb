@@ -1,20 +1,6 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.page(params[:page])
-
-    respond_to do |format|
-      format.html
-      format.pdf do
-        # f=''
-        # #render :pdf => "report", :template => 'posts/index.pdf.slim', disposition: 'attachment'
-        # #File.open(, 'r') { |f| f.readlines }
-        # kit = PDFKit.new(render_to_string 'index.pdf.slim'.to_sym, :page_size => 'Letter')
-        # kit.stylesheets << 'app/assets/stylesheets/application.css'
-        # #pdf = kit.to_pdf
-        # file = kit.to_file('test.pdf')
-      end
-      format.json {render json: @posts}
-    end
   end
 
   def new
@@ -23,6 +9,17 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    _a = @post[:tag_ids]
+    @tags = Tag.get_tags(_a)
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: 'posts/show'
+        kit = PDFKit.new( render_to_string  @post, :page_size => 'Letter', template: 'main_layout', encoding:'utf8')
+        pdf = kit.to_pdf
+      end
+      format.json {render json: @posts}
+    end
   end
 
   def create

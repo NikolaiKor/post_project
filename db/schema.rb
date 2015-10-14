@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151003163149) do
+ActiveRecord::Schema.define(version: 20151013095202) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,11 +34,13 @@ ActiveRecord::Schema.define(version: 20151003163149) do
     t.string   "address"
     t.datetime "started_at"
     t.string   "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "tag_ids",    default: [],              array: true
   end
 
   add_index "events", ["id"], name: "index_events_on_id", using: :btree
+  add_index "events", ["tag_ids"], name: "index_events_on_tag_ids", using: :gin
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
@@ -46,18 +48,28 @@ ActiveRecord::Schema.define(version: 20151003163149) do
     t.string   "image",      default: "no_image.png"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "tag_ids",    default: [],                          array: true
   end
 
   add_index "posts", ["id"], name: "index_posts_on_id", using: :btree
+  add_index "posts", ["tag_ids"], name: "index_posts_on_tag_ids", using: :gin
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "videos", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
     t.string   "video"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "tag_ids",     default: [],              array: true
   end
 
   add_index "videos", ["id"], name: "index_videos_on_id", using: :btree
+  add_index "videos", ["tag_ids"], name: "index_videos_on_tag_ids", using: :gin
 
 end

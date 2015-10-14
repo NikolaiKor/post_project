@@ -1,0 +1,8 @@
+p: b: h3
+  'Comments
+-if locals[:commentable].comments.empty?
+  p No comments
+- locals[:commentable].comments.each do |c|
+  b = "#{c.author_name} (#{c.author_email}) at #{c.created_at}"
+  br = c.content
+  br

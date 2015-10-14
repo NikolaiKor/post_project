@@ -1,0 +1,4 @@
+.info_container
+  = render 'posts/post_info'
+.comment_list_container
+  = render 'comments/comments_list', locals: {commentable: @post}

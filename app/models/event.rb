@@ -1,6 +1,7 @@
 class Event < ActiveRecord::Base
   #attr_accessible :title, :address, :started_at, :image
   has_many :comments, as: :target
+  has_many :tags
 
   mount_uploader :image, PictureUploader
 
