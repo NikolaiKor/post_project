@@ -1,5 +1,5 @@
 class Video < ActiveRecord::Base
-  include Taggable
+  #include Taggable
 
   has_many :comments, as: :target
   has_many :tags
