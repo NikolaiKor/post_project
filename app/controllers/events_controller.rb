@@ -3,7 +3,14 @@ class EventsController < ApplicationController
     @events = Event.page(params[:page])
 
     respond_to do |format|
-      format.html
+      format.html do
+        _max_time=0
+        @events.each do |event|
+          _time = event.updated_at.to_i
+          _max_time = _time if _max_time < _time
+        end
+        fresh_when last_modified:Time.at(_max_time), etag: @events
+      end
       format.json { render json: @events }
     end
   end
@@ -14,6 +21,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    fresh_when last_modified: @event.updated_at.utc, etag: @event
   end
 
   def create
