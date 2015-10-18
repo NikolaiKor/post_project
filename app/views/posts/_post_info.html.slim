@@ -1,11 +1,12 @@
 .col-md-4
   =image_tag(@post.image, width: "300")
 .col-md-8
-  .info_wrapper
+  .info_wrapper style=@post.style
+    p =@post.style.inspect
     p: h2 =@post.title
     p.date_container =@post.updated_at
     p =@post.content
     p: b
       ' Tags:
-      - @tags.each do |tag|
+        - @tags.each do |tag|
         = tag.name + ' '

@@ -215,6 +215,7 @@ DEPENDENCIES
   factory_girl_rails
   fakeweb
   fuubar
+  i18n
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
