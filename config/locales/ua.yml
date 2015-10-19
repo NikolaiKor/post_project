@@ -1,0 +1,49 @@
+# encoding: utf-8
+ua:
+  home:
+    menu:
+     home: 'Домашня сторінка'
+     events: 'Події'
+     posts: 'Пости'
+     videos: 'Відео'
+    tags_cloud:
+      title: 'Хмара тегів'
+    last_posts:
+      title: 'Останні пости'
+    last_events:
+      title: 'Останні події'
+    last_videos:
+      title: 'Останні відео'
+  posts:
+    title: 'Пости'
+    create_title: 'Створити новий пост'
+    new_form:
+      title: 'Заголовок'
+      content: 'Контент'
+      image: 'Зображення'
+      create: 'Створити'
+  video:
+    title: 'Відео'
+    create_title: 'Додати нове відео'
+    new_form:
+      title: 'Заголовок'
+      description: 'Опис'
+      video: 'Відео'
+      create: 'Створити'
+  events:
+    title: 'Події'
+    create_title: 'Створити нову подію'
+    new_form:
+      title: 'Заголовок'
+      address: 'Адреса'
+      started: 'Дата та час початку'
+      image: 'Зображення'
+      create: 'Створити'
+  comments:
+    name: 'Ім’я'
+    email: 'E-mail'
+    content: 'Контент'
+    create: 'Створити'
+  time:
+    formats:
+      base: '%d.%m.%Y %H:%M:%S'

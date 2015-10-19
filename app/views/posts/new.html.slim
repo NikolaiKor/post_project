@@ -1,10 +1,10 @@
 .info_container
   .col-md-10.col-md-offset-1
     = form_for @post do |f|
-      = f.label :title, 'Title'
+      = f.label :title, t('posts.new_form.title')
       = f.text_field :title
-      br = f.label :content, 'Content'
+      br = f.label :content, t('posts.new_form.content')
       = f.text_area :content, size: '60x12'
-      br = f.label :image, 'Image'
+      br = f.label :image, t('posts.new_form.image')
       = f.file_field :image
-      br = f.submit 'Create', class: "btn btn-lg btn-default"
+      br = f.submit t('posts.new_form.create'), class: "btn btn-lg btn-default"

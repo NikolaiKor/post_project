@@ -10,19 +10,15 @@ html
         .container-fluid
           .navbar-header
             button.navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button"
-              span.sr-only Toggle navigation
-              span.icon-bar
-              span.icon-bar
-              span.icon-bar
             a.navbar-brand href="/"  Post project
           #navbar.navbar-collapse.collapse
             ul.nav.navbar-nav
               li
-                a href="/"  Home
+                a href="/"  =t('home.menu.home')
               li
-                a.active href="/posts"  Posts
+                a.active href="/posts"  =t('home.menu.posts')
               li
-                a href="/videos"  Videos
+                a href="/videos"  =t('home.menu.videos')
               li
-                a href="/events"  Events
+                a href="/events"  =t('home.menu.events')
       = yield

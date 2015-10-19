@@ -5,7 +5,7 @@
     p: h2 =@event.title
     p
       'Started at
-      =@event.started_at
+      =l(@event.started_at, format: :base)
     p
       'Adress:
       =@event.address

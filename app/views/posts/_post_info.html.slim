@@ -3,7 +3,7 @@
 .col-md-8
   .info_wrapper
     p: h2 =@post.title
-    p.date_container =@post.updated_at
+    p.date_container =l(@post.updated_at, format: :base)
     p =@post.content
     p: b
       ' Tags:

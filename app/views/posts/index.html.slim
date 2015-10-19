@@ -1,5 +1,5 @@
 .info_container
-  = link_to 'Create new post', new_post_path, :class => "btn btn-small"
+  = link_to t('posts.create_title'), new_post_path, :class => "btn btn-small"
   br
   br
   = 'No posts' if @posts.empty?
