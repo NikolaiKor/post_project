@@ -33,10 +33,10 @@ ActiveRecord::Schema.define(version: 20151014071640) do
     t.string   "title"
     t.string   "address"
     t.datetime "started_at"
-    t.string   "image"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.integer  "tag_ids",    default: [],              array: true
+    t.string   "image",      default: "no_image.png"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.integer  "tag_ids",    default: [],                          array: true
   end
 
   add_index "events", ["id"], name: "index_events_on_id", using: :btree

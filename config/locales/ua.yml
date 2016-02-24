@@ -42,7 +42,7 @@ ua:
   comments:
     name: 'Ім’я'
     email: 'E-mail'
-    content: 'Контент'
+    content: 'Коментар'
     create: 'Створити'
   time:
     formats:

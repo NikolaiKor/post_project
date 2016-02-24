@@ -3,12 +3,27 @@ html {
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%
 }
-
+.info_container{
+    display: block;
+}
 .list_container {
     margin-left: 20px;
     margin-right: 20px;
 }
-
+.create_btn{
+    margin-bottom: 5px;
+}
+.pagination_container{
+    margin: auto;
+    text-align: center;
+}
+.tag-badge{
+    margin-left: 1px;
+    margin-right: 1px;
+}
+.tag-badge:focus, .tag-badge:hover{
+    text-decoration: none;
+}
 @media (min-width: 768px) {
     .container {
         max-width: 1000px;
@@ -21,15 +36,12 @@ html {
         background-color: #fff
     }
 }
-
 .container-narrow > hr {
     margin: 30px 0;
 }
-
 .date_container{
     font-size: 12px;
 }
-
 .cloud_1{
     font-size: 48px;
 }

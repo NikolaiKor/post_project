@@ -8,4 +8,6 @@
     p: b
       ' Tags:
       - @tags.each do |tag|
-        = tag.name + ' '
+        a.tag-badge
+          span.label.label-info
+            = tag.name + ' '

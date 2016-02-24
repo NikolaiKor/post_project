@@ -1,17 +1,14 @@
 Rails.application.routes.draw do
 
   root 'welcome#index'
-  concern :commentable do
-    resources :comments, only: [:create, :new, :index]
+  scope "(:locale)", locale: /en|ua/ do
+
+    concern :commentable do
+      resources :comments, only: [:create, :new, :index, :destroy]
+    end
+
+    resources :posts, :events, :videos, :comments, only: [:index, :show, :new, :edit, :update, :destroy, :create], concerns: :commentable
   end
-
-  resources :posts, :events, :videos, :comments, only: [:index,:show, :new, :edit, :update, :destroy, :create], concerns: :commentable
-
-  #resources :events, only: [:index, :show, :new, :edit, :update, :destroy], concerns: :commentable
-
-  #resources :videos, only: [:index, :show, :new, :edit, :update, :destroy], concerns: :commentable
-
-  #resources :comments, only: [:index, :show, :new, :edit, :update, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
