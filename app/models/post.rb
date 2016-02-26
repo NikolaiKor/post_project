@@ -21,6 +21,8 @@ class Post < ActiveRecord::Base
   has_many :comments, as: :target
 
   mount_uploader :image, PictureUploader
+
+  validates :image, file_size: { less_than: 5.megabytes.to_i }
   validates :title, presence: true, length: {maximum: 45}
   validates :content, presence: true, length: {maximum: 500}
 end

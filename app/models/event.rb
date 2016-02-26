@@ -24,6 +24,7 @@ class Event < ActiveRecord::Base
 
   mount_uploader :image, PictureUploader
 
+  validates :image, file_size: { less_than: 5.megabytes.to_i }
   validates :address, presence: true, length: {maximum: 140}
   validates :title, presence: true, length: {maximum: 45}
   validates :started_at, presence: true

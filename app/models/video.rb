@@ -23,6 +23,7 @@ class Video < ActiveRecord::Base
   has_many :tags
 
   mount_uploader :video, VideoUploader
+  validates :video, file_size: { less_than: 200.megabytes.to_i }
   validates :title, presence: true, length: {maximum: 45}
   validates :description, presence: true, length: {maximum: 140}
 end
