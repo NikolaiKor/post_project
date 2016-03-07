@@ -2,7 +2,7 @@
   .create_btn
     = link_to t('posts.create_title'), new_post_path, :class => 'btn btn-default'
 .posts_container
-  = 'No posts' if @posts.empty?
+  = t('posts.new_form.no_posts') if @posts.empty?
   = render @posts
-  .pagination_container
+  .pagination_container.text-center
     = paginate @posts

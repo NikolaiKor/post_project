@@ -1,6 +1,4 @@
 .info_wrapper
   p: h2 =@video.title
-  p
-    'Description
-    =@video.description
-  p: a href="#{@video.video}" Video
+  p = t('video.new_form.description') + @video.description
+  p: a href="#{@video.video}" =t('video.title')

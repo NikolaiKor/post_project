@@ -2,23 +2,35 @@ doctype 5
 html
   head
     meta charset="utf8"
-    title Post Project
-    = stylesheet_link_tag 'application.css'
+    title =t('site_name')
+    = stylesheet_link_tag 'application.css', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application.js', 'data-turbolinks-track' => true
   body
     .container
       nav.navbar.navbar-default
         .container-fluid
           .navbar-header
             button.navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button"
-            a.navbar-brand href="/"  Post project
+            a.navbar-brand href=root_path  =t('site_name')
           #navbar.navbar-collapse.collapse
             ul.nav.navbar-nav
               li
-                a href="/"  =t('home.menu.home')
+                a href=root_path =t('home.menu.home')
               li
                 a.active href=posts_path  =t('home.menu.posts')
               li
-                a href="/videos"  =t('home.menu.videos')
+                a href=videos_path =t('home.menu.videos')
               li
-                a href="/events"  =t('home.menu.events')
+                a href=events_path =t('home.menu.events')
+              li
+                a href=tags_path = t('home.menu.tags')
+            ul.nav.navbar-nav.navbar-right
+              li.dropdown
+                a.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button" =t('locale.title')
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a href="#{request.fullpath[1,2]}"  =t('locale.locales.ua')
+                  li
+                    a href="#"  =t('locale.locales.en')
       = yield

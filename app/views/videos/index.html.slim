@@ -1,7 +1,7 @@
 .info_container
   .create_btn
     = link_to t('video.create_title'), new_video_path, :class => 'btn btn-default'
-  = 'No videos' if @videos.empty?
+  =t('video.no_content') if @videos.empty?
   = render @videos
-  .pagination_container
+  .pagination_container.text-center
     = paginate @videos

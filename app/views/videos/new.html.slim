@@ -11,4 +11,7 @@
         = f.label :video, t('video.new_form.video')
         = f.file_field :video
       .form-group
+        = f.label :tag_ids, t('events.new_form.tags_select')
+        = f.select :tag_ids, @tags, {}, {class: 'form-control', multiple: true, size: 5}
+      .form-group
         = f.submit t('video.new_form.create'), class: 'btn btn-default'

@@ -14,4 +14,7 @@
         = f.label :image, t('events.new_form.image')
         = f.file_field :image
       .form-group
+        = f.label :tag_ids, t('events.new_form.tags_select')
+        = f.select :tag_ids, @tags, {}, {class: 'form-control', multiple: true, size: 5}
+      .form-group
         = f.submit t('events.new_form.create'), class: 'btn btn-default'

@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
-  root 'welcome#index'
   scope "(:locale)", locale: /en|ua/ do
+    root 'welcome#index'
 
     concern :commentable do
       resources :comments, only: [:create, :new, :index, :destroy]
     end
+
+    resources :tags, only: [:index, :show]
 
     resources :posts, :events, :videos, :comments, only: [:index, :show, :new, :edit, :update, :destroy, :create], concerns: :commentable
   end

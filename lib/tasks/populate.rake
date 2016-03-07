@@ -38,14 +38,15 @@ namespace :db do
     end
 
     def tag_populate
-      arr = Array.new(Faker::Number.between(1, 5)) { Faker::Number.between(1, TAG_NUMBER) }
+      arr = Faker::Number.between(1, 5).times.map { Faker::Number.between(1, TAG_NUMBER) }
       '{' +arr.join(', ')+ '}'
     end
 
     [Post, Event, Tag].each(&:delete_all)
 
     Tag.populate TAG_NUMBER do |tag|
-      tag.name = Faker::Lorem.word
+      name = Faker::Lorem.word while name.nil? || name.length < 4
+      tag.name = name
     end
 
     Post.populate 50 do |post|
@@ -63,5 +64,6 @@ namespace :db do
       event.tag_ids = tag_populate
     end
 
+    puts 'Populated'
   end
 end

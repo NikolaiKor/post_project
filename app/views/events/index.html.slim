@@ -3,5 +3,5 @@
     = link_to t('events.create_title'), new_event_path, :class => 'btn btn-default'
   = 'No events' if @events.empty?
   = render @events
-  .pagination_container
+  .pagination_container.text-center
     = paginate @events

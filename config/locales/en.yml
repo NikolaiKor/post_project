@@ -1,4 +1,5 @@
 en:
+  site_name: 'Post Project'
   home:
     menu:
      home: 'Home'
@@ -21,9 +22,11 @@ en:
       content: 'Content'
       image: 'Image'
       create: 'Create'
+      no_posts: 'No posts'
   video:
-    title: 'Events'
+    title: 'Video'
     create_title: 'Add new video'
+    no_content: 'No videos'
     new_form:
       title: 'Title'
       description: 'Description'
@@ -35,7 +38,8 @@ en:
     new_form:
       title: 'Title'
       address: 'Address'
-      started: 'Started at date'
+      started: 'Started at'
+      tags_select: 'Select tags'
       image: 'Image'
       create: 'Create'
   comments:
@@ -43,6 +47,20 @@ en:
     email: 'E-mail'
     content: 'Content'
     create: 'Create'
+    comments_header: 'Comments'
+    new_comment: 'New comment'
+    no_comments: 'No comments'
+  tags:
+    content_for: 'Content for "%{name}" tag'
+    tags_header: 'Tags:'
+    no_content: 'No content'
+  image_modal:
+    header: 'Image view'
+  locale:
+    title: 'Locale'
+    locales:
+      ua: 'UA'
+      en: 'EN'
   time:
     formats:
       base: '%H:%M:%S'

@@ -1,13 +1,14 @@
-p: h4 New comment
-= form_for([locals[:commentable], locals[:commentable].comments.new]) do |f|
-  .form-group
-    = f.label :author_name, t('comments.name')
-    = f.text_field :author_name, class:'form-control'
-  .form-group
-    = f.label :author_email, t('comments.email')
-    = f.text_field :author_email, class:'form-control'
-  .form-group
-    = f.label :content, t('comments.content')
-    = f.text_area :content, size: '30x5', class:'form-control'
-  .form-group
-    = f.submit t('comments.create'), class: 'btn btn-default'
+.well
+  p: h4 =t('comments.new_comment')
+  = form_for([locals[:commentable], locals[:commentable].comments.new]) do |f|
+    .form-group
+      = f.label :author_name, t('comments.name')
+      = f.text_field :author_name, class:'form-control'
+    .form-group
+      = f.label :author_email, t('comments.email')
+      = f.text_field :author_email, class:'form-control'
+    .form-group
+      = f.label :content, t('comments.content')
+      = f.text_area :content, size: '30x5', class:'form-control'
+    .form-group
+      = f.submit t('comments.create'), class: 'btn btn-default'

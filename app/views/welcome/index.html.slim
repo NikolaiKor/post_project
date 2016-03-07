@@ -1,6 +1,10 @@
+a href="/ua/" UA
+a href="/en/" EN
+
 h1 =t('home.tags_cloud.title')
--@tags_cloud.each do |tag|
-  a class=tag[:class] =tag[:tag].name
+.cloud-container
+  -@tags_cloud.each do |tag|
+    a class='#{tag[:class]}' =tag[:tag].name
 h1 =t('home.last_posts.title')
 = render @posts
 h1 =t('home.last_events.title')
