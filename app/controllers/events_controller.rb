@@ -35,16 +35,22 @@ class EventsController < ApplicationController
   end
 
   def new
+    @tags = []
+    Tag.get_all.each { |tag| @tags << [tag[:name] , tag[:id]]}
     @event = Event.new
   end
 
   def show
     @event = Event.find(params[:id])
+    @tags = Tag.get_tags(@event[:tag_ids])
     fresh_when last_modified: @event.updated_at.utc, etag: @event
   end
 
   def create
-    @event = Event.new(event_params)
+    par = event_params
+    par[:tag_ids] = params[:event][:tag_ids]
+    par[:tag_ids].delete_if{|x| x==""}
+    @event = Event.new(par)
     @event.save
     redirect_to @event
   end

@@ -51,6 +51,7 @@ ua:
     create: 'Створити'
     comments_header: "Коментарі"
     no_comments: "Відсутні коментарі"
+    new_comment: "Новий коментар"
   tags:
     no_content: "Контент відсутній"
     tags_header: "Теги"

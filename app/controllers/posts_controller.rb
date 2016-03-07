@@ -22,13 +22,14 @@ class PostsController < ApplicationController
   end
 
   def new
+    @tags = []
+    Tag.get_all.each { |tag| @tags << [tag[:name] , tag[:id]]}
     @post = Post.new
   end
 
   def show
     @post = Post.find(params[:id])
-    _a = @post[:tag_ids]
-    @tags = Tag.get_tags(_a)
+    @tags = Tag.get_tags(@post[:tag_ids])
     respond_to do |format|
       format.html
       format.pdf do
@@ -41,7 +42,10 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    par = post_params
+    par[:tag_ids] = params[:post][:tag_ids]
+    par[:tag_ids].delete_if{|x| x==""}
+    @post = Post.new(par)
     @post.save
     redirect_to @post
   end

@@ -12,35 +12,45 @@ class Tag < ActiveRecord::Base
   validates :name, presence: true, length: {maximum: 15}
 
   def self.get_tags(ids)
-    Tag.where('ARRAY[id] <@ ARRAY[?]', Array.wrap(ids).map(&:to_i)) unless ids.nil? || ids.empty?
+    Tag.where(' ARRAY[id] <@ ARRAY[?]', Array.wrap(ids).map(&:to_i)) unless ids.nil? || ids.empty?
   end
 
   def self.cloud
+    _cloud = []
+    cloud_query { |c| _cloud << {tag: Tag.new(id: c['id'], name: c['name']),
+                                 count: c['tags_count'], class: get_class(c['tags_count'].to_i)} }
+    _cloud
+  end
+
+  def self.get_all
+    all = []
+    cloud_query { |c| all << {id: c['id'], name: c['name'], count: c['tags_count']} }
+    all.sort! { |a, b| b[:count].to_i<=> a[:count].to_i }
+  end
+
+  private
+
+  def self.cloud_query
     _result = ActiveRecord::Base.connection.execute('
       SELECT tags.id, tags.name, COUNT(tags.id) AS tags_count FROM tags, content_views
         WHERE tags.id = ANY(content_views.tag_ids)
-        GROUP BY tags.id
-        ORDER BY tags_count desc;
+        GROUP BY tags.id;
     ')
-    _cloud = []
-    _result.each  do |c|
-      _buf = c['name']
-      _cloud << {tag:Tag.new(id: c['id'], name: c['name']), count:c['tags_count'], class:get_class(c['tags_count'].to_i)}
-    end
-    _cloud
-    # @tags2 = Tag.includes(:content_views).
-    #     select('tags.id, tags.name, COUNT(tags.id) AS tags_count FROM tags, content_views
-    #     WHERE tags.id = ANY(content_views.tag_ids)').group('tags.id').order(:tags_count).reverse_order
-    # print @tags2.inspect
+    _result.each { |c| yield(c) }
   end
 
   def self.get_class(number)
     case number
-      when 1..2 then 'cloud_5'
-      when 2..3 then 'cloud_4'
-      when 3..4 then 'cloud_3'
-      when 4..5 then 'cloud_2'
-      when  number > 5 then 'cloud_1'
+      when 1..5 then
+        'cloud_5'
+      when 5..10 then
+        'cloud_4'
+      when 10..15 then
+        'cloud_3'
+      when 15..20 then
+        'cloud_2'
+      else
+        'cloud_1'
     end
   end
 end

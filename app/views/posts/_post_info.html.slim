@@ -9,9 +9,4 @@
       p: h2 =@post.title
       p.date_container =l(@post.updated_at, format: :base)
       p =@post.content
-      p: b = t('tags.tags_header')
-        - unless @tags.nil?
-          - @tags.each do |tag|
-            a.tag-badge href="/tags/#{tag.id}"
-              span.label.label-info
-                = tag.name + ' '
+      =render 'tags/tags_list', tags:@tags

@@ -29,8 +29,6 @@ html
                 a.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button" =t('locale.title')
                   span.caret
                 ul.dropdown-menu
-                  li
-                    a href="#{request.fullpath[1,2]}"  =t('locale.locales.ua')
-                  li
-                    a href="#"  =t('locale.locales.en')
+                  - %w(ua en).each do |locale|
+                    li: a href="/#{locale}#{request.fullpath.gsub(%r(^/((ua)|(en))),'')}"  =locale.upcase
       = yield

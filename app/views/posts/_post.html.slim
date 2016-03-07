@@ -1,9 +1,8 @@
 = cache post do
   .row.content-wrap
     .col-md-3
-      a(href= "#{posts_path}/#{post.id}")
-        =cl_image_tag(post.image, width: "200")
+      =cl_image_tag(post.image, width: "200")
     .col-md-9
       .info_wrapper
-        p: h2: a(href= "/posts/#{post.id}") =post.title
+        p: h2: a(href="#{posts_path}/#{post.id}") =post.title
         p =post.content

@@ -10,3 +10,4 @@
       p: h2 =@event.title
       p  = "#{t('events.new_form.started')} #{l(@event.started_at, format: :base)}"
       p = "#{t('events.new_form.address')} #{@event.address}"
+      =render 'tags/tags_list', tags:@tags

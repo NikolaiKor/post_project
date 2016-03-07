@@ -5,6 +5,8 @@
 #  id          :integer          primary key
 #  title       :string
 #  type        :text
+#  image       :string
+#  content     :string
 #  description :text
 #  started_at  :datetime
 #  address     :string

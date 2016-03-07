@@ -27,16 +27,22 @@ class VideosController < ApplicationController
   end
 
   def new
+    @tags = []
+    Tag.get_all.each { |tag| @tags << [tag[:name] , tag[:id]]}
     @video = Video.new
   end
 
   def show
     @video = Video.find(params[:id])
+    @tags = Tag.get_tags(@video[:tag_ids])
   end
 
   def create
-    @video = Video.new(video_params)
-    @video.save!
+    par = video_params
+    par[:tag_ids] = params[:event][:tag_ids]
+    par[:tag_ids].delete_if{|x| x==""}
+    @video = Video.new(par)
+    @video.save
     redirect_to @video
   end
 

@@ -2,3 +2,4 @@
   p: h2 =@video.title
   p = t('video.new_form.description') + @video.description
   p: a href="#{@video.video}" =t('video.title')
+  =render 'tags/tags_list', tags: @tags
