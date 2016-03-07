@@ -1,12 +1,20 @@
 .info_container
   .col-md-10.col-md-offset-1
     = form_for @event do |f|
-      br = f.label :title, 'Title'
-      = f.text_field :title
-      br = f.label :address, 'Address'
-      = f.text_field :address
-      br = f.label :started_at, 'Started at date'
-      = f.datetime_local_field :started_at
-      br = f.label :image, 'Image'
-      = f.file_field :image
-      br = f.submit 'Create', class: "btn btn-lg btn-default"
+      .form-group
+        = f.label :title, t('events.new_form.title')
+        = f.text_field :title, class:'form-control'
+      .form-group
+        = f.label :address, t('events.new_form.address')
+        = f.text_field :address, class:'form-control'
+      .form-group
+        = f.label :started_at, t('events.new_form.started')
+        = f.datetime_local_field :started_at, class:'form-control'
+      .form-group
+        = f.label :image, t('events.new_form.image')
+        = f.file_field :image
+      .form-group
+        = f.label :tag_ids, t('events.new_form.tags_select')
+        = f.select :tag_ids, @tags, {}, {class: 'form-control', multiple: true, size: 5}
+      .form-group
+        = f.submit t('events.new_form.create'), class: 'btn btn-default'

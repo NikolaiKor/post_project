@@ -1,8 +1,12 @@
-p: b: h3
-  'Comments
+p: b: h3 =t('comments.comments_header')
 -if locals[:commentable].comments.empty?
-  p No comments
+  p =t('comments.no_comments')
 - locals[:commentable].comments.each do |c|
-  b = "#{c.author_name} (#{c.author_email}) at #{c.created_at}"
-  br = c.content
+  .media
+    .media-body
+      h4.media-heading
+        b
+          = "#{c.author_name}"
+        = "(#{c.author_email}) at #{l(c.created_at, format: :base)}"
+      = c.content
   br

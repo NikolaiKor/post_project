@@ -1,0 +1,7 @@
+p
+  b = t('tags.tags_header')
+  - unless tags.nil?
+    - tags.each do |tag|
+      a.tag-badge href="#{tags_path}/#{tag.id}"
+        span.label.label-info
+          = tag.name + ' '

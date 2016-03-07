@@ -1,0 +1,10 @@
+#imagemodal.modal.fade.bs-example-modal-lg aria-labelledby="myLargeModalLabel" role="dialog" tabindex="-1"
+  .modal-dialog.modal-lg
+    .modal-content
+      .modal-header
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true"  &times;
+        h4#myModalLabel.modal-title =t('image_modal.header')
+        .modal-body
+          .img-responsive
+            = cl_image_tag(yield(:image), class:'modal_view')

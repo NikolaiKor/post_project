@@ -1,7 +1,7 @@
 .info_container
-  a.btn.btn-small href='/events/new'
-    'Create new event
-    br
-    br
+  .create_btn
+    = link_to t('events.create_title'), new_event_path, :class => 'btn btn-default'
+  = 'No events' if @events.empty?
   = render @events
-  = paginate @events
+  .pagination_container.text-center
+    = paginate @events

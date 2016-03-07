@@ -35,8 +35,15 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'slim-rails'
 gem 'thin'
 gem 'carrierwave'
+# gem 'carrierwave-dropbox'
+gem 'cloudinary'
 gem 'kaminari'
-gem 'carrierwave'
+gem 'annotate'
+gem 'populator'
+gem 'faker'
+gem 'as-duration'
+gem 'file_validators'
+
 gem 'debase'
 gem 'prawn'
 gem 'wkhtmltopdf-binary'
@@ -44,9 +51,10 @@ gem 'pdfkit'
 gem 'wicked_pdf'
 gem 'i18n'
 
+gem 'byebug', group: [:test, :development]
+
 group :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'  
   gem 'rspec-rails'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
@@ -57,7 +65,6 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-  gem 'byebug'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

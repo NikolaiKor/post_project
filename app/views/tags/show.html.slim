@@ -1,0 +1,4 @@
+h1 = t('tags.content_for', name:@tag.name)
+.info_container
+    = t('tags.no_content') if @content.empty?
+    = render @content

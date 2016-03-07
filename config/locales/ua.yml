@@ -1,0 +1,86 @@
+# encoding: utf-8
+ua:
+  site_name: "Post Project"
+  home:
+    menu:
+     home: 'Домашня сторінка'
+     events: 'Події'
+     posts: 'Пости'
+     videos: 'Відео'
+     tags: 'Теги'
+    tags_cloud:
+      title: 'Хмара тегів'
+    last_posts:
+      title: 'Останні пости'
+    last_events:
+      title: 'Останні події'
+    last_videos:
+      title: 'Останні відео'
+  posts:
+    title: 'Пости'
+    create_title: 'Створити новий пост'
+    new_form:
+      title: 'Заголовок'
+      content: 'Контент'
+      image: 'Зображення'
+      create: 'Створити'
+      no_posts: "Контент відсутній"
+  video:
+    title: 'Відео'
+    create_title: 'Додати нове відео'
+    new_form:
+      title: 'Заголовок'
+      description: 'Опис'
+      video: 'Відео'
+      create: 'Створити'
+    no_content: "Намає відео"
+  events:
+    title: 'Події'
+    create_title: 'Створити нову подію'
+    new_form:
+      title: 'Заголовок'
+      address: 'Адреса'
+      started: 'Дата та час початку'
+      image: 'Зображення'
+      create: 'Створити'
+      tags_select: "Виберіть теги"
+  comments:
+    name: 'Ім’я'
+    email: 'E-mail'
+    content: 'Коментар'
+    create: 'Створити'
+    comments_header: "Коментарі"
+    no_comments: "Відсутні коментарі"
+    new_comment: "Новий коментар"
+  tags:
+    no_content: "Контент відсутній"
+    tags_header: "Теги"
+    content_for: 'Контент для тегу "%{name}"'
+  image_modal:
+    header: "Перегляд зображення"
+  locale:
+    title: "Мова"
+    locales:
+      ua: "UA"
+      en: "EN"
+  time:
+    formats:
+      base: '%d.%m.%Y %H:%M:%S'
+  helpers:
+    page_entries_info:
+      more_pages:
+        display_entries: "Відображено %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> із <b>%{total}</b>"
+      one_page:
+        display_entries:
+          few: "Відображені <b>%{count}</b> %{entry_name}"
+          many: "Відображені <b>%{count}</b> %{entry_name}"
+          one: "Відображено <b>%{count}</b> %{entry_name}"
+          other: "Відображені <b>всі %{count}</b> %{entry_name}"
+          zero: "Жодного %{entry_name}"
+  views:
+    pagination:
+      first: "&laquo; Перша"
+      last: "Остання &raquo;"
+      next: "Наступна &rsaquo;"
+      previous: "&lsaquo; Попередня"
+      truncate: "&hellip;"

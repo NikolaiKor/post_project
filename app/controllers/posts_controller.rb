@@ -1,16 +1,35 @@
+# == Schema Information
+#
+# Table name: posts
+#
+#  id         :integer          not null, primary key
+#  title      :string
+#  content    :string
+#  image      :string           default("no_image.png")
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  tag_ids    :integer          default([]), is an Array
+#
+# Indexes
+#
+#  index_posts_on_id       (id)
+#  index_posts_on_tag_ids  (tag_ids)
+#
+
 class PostsController < ApplicationController
   def index
     @posts = Post.page(params[:page])
   end
 
   def new
+    @tags = []
+    Tag.get_all.each { |tag| @tags << [tag[:name] , tag[:id]]}
     @post = Post.new
   end
 
   def show
     @post = Post.find(params[:id])
-    _a = @post[:tag_ids]
-    @tags = Tag.get_tags(_a)
+    @tags = Tag.get_tags(@post[:tag_ids])
     respond_to do |format|
       format.html
       format.pdf do
@@ -23,7 +42,10 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    par = post_params
+    par[:tag_ids] = params[:post][:tag_ids]
+    par[:tag_ids].delete_if{|x| x==""}
+    @post = Post.new(par)
     @post.save
     redirect_to @post
   end

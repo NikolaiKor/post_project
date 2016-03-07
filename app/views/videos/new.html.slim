@@ -1,10 +1,17 @@
 .info_container
   .col-md-10.col-md-offset-1
     = form_for @video do |f|
-      br = f.label :title, 'Title'
-      = f.text_field :title
-      br = f.label :description, 'Description'
-      = f.text_field :description
-      br = f.label :video, 'Video'
-      = f.file_field :video
-      br = f.submit 'Create', class: "btn btn-lg btn-default"
+      .form-group
+        = f.label :title, t('video.new_form.title')
+        = f.text_field :title, class:'form-control'
+      .form-group
+        = f.label :description, t('video.new_form.description')
+        = f.text_field :description, class:'form-control'
+      .form-group
+        = f.label :video, t('video.new_form.video')
+        = f.file_field :video
+      .form-group
+        = f.label :tag_ids, t('events.new_form.tags_select')
+        = f.select :tag_ids, @tags, {}, {class: 'form-control', multiple: true, size: 5}
+      .form-group
+        = f.submit t('video.new_form.create'), class: 'btn btn-default'
